@@ -3,6 +3,8 @@ grpc-web-chat
 
 This is a test app that chats in real time.
 
+![demo](demo/chat_demo_en.gif)
+
 ## Dependencies
 - grpc
 - grpc-web
