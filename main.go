@@ -90,6 +90,9 @@ func main() {
 
 	reflection.Register(s)
 
+	client := NewRedisClient()
+	log.Print(client.Ping().Err())
+
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("Failed to serve: %v", err)
 	}
