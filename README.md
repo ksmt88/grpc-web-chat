@@ -18,10 +18,6 @@ docker-compose up
 ```
 
 ## Kubernetes
-- Modify envoy.yaml
-```
-hosts: [{ socket_address: { address: 127.0.0.1, port_value: 50051 }}]
-```
 - create ingress, service...etc
 ```
 kubectl apply -f ./k8s/

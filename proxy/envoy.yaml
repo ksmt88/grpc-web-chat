@@ -13,6 +13,10 @@ static_resources:
             - name: envoy.filters.network.http_connection_manager
               typed_config:
                 "@type": type.googleapis.com/envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManager
+                access_log:
+                  - name: envoy.file_access_log
+                    config:
+                      path: "/dev/stdout"
                 codec_type: auto
                 stat_prefix: ingress_http
                 route_config:
@@ -41,7 +45,8 @@ static_resources:
   clusters:
     - name: chat_service
       connect_timeout: 0.25s
-      type: logical_dns
+      type: strict_dns
       http2_protocol_options: {}
       lb_policy: round_robin
+      drain_connections_on_host_removal: true
       hosts: [{ socket_address: { address: backend, port_value: 50051 }}]
