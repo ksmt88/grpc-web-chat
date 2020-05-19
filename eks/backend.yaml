@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: grpc-web-chat_backend:latest
-          imagePullPolicy: Never
+          image: 698712139551.dkr.ecr.ap-northeast-1.amazonaws.com/grpc-web-chat_backend:v1.0.0
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 50051
